@@ -6,7 +6,10 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-from .constants import MONTH_ORDER
+try:
+    from .constants import MONTH_ORDER
+except ImportError:
+    from constants import MONTH_ORDER
 
 
 def fig_price_hist_box(df: pd.DataFrame) -> go.Figure:

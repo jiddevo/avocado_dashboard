@@ -1,10 +1,17 @@
 from __future__ import annotations
 
+import os
+
 from dash import Dash
 
-from .callbacks import register_callbacks
-from .data_loader import load_avocado_data
-from .layout import create_layout
+try:
+    from .callbacks import register_callbacks
+    from .data_loader import load_avocado_data
+    from .layout import create_layout
+except ImportError:
+    from callbacks import register_callbacks
+    from data_loader import load_avocado_data
+    from layout import create_layout
 
 
 def create_app() -> Dash:
@@ -20,4 +27,5 @@ server = app.server
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8050)
+    port = int(os.environ.get("PORT", 8050))
+    app.run(host="0.0.0.0", port=port, debug=False)

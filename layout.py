@@ -2,7 +2,10 @@ from __future__ import annotations
 
 from dash import dcc, html
 
-from .constants import DEFAULT_FORECAST_MODELS, FORECAST_MODEL_OPTIONS
+try:
+    from .constants import DEFAULT_FORECAST_MODELS, FORECAST_MODEL_OPTIONS
+except ImportError:
+    from constants import DEFAULT_FORECAST_MODELS, FORECAST_MODEL_OPTIONS
 
 
 def _card(title: str, value_id: str) -> html.Div:

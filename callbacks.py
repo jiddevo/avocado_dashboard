@@ -3,42 +3,80 @@ from __future__ import annotations
 from dash import Input, Output, callback, html
 import plotly.graph_objects as go
 
-from .charts import (
-    fig_bag_by_type,
-    fig_bag_totals,
-    fig_cagr_bars,
-    fig_corr_heatmap,
-    fig_forecast,
-    fig_monthly_trend,
-    fig_price_hist_box,
-    fig_region_top_bottom,
-    fig_seasonality,
-    fig_top_pairs,
-    fig_type_box,
-    fig_type_mean,
-    fig_type_year_volume,
-    fig_value_proxy,
-    fig_volume_vs_price,
-)
-from .constants import DEFAULT_FORECAST_MODELS
-from .transforms import (
-    apply_filters,
-    bag_totals_and_long,
-    executive_summary_text,
-    forecast_backtest,
-    get_missing_summary,
-    get_overview_stats,
-    growth_analysis,
-    monthly_trends,
-    overview_dashboard_data,
-    price_distribution_stats,
-    region_rankings,
-    regional_competition,
-    seasonality,
-    type_price_stats,
-    value_proxy_by_type,
-    volume_price_sample,
-)
+try:
+    from .charts import (
+        fig_bag_by_type,
+        fig_bag_totals,
+        fig_cagr_bars,
+        fig_corr_heatmap,
+        fig_forecast,
+        fig_monthly_trend,
+        fig_price_hist_box,
+        fig_region_top_bottom,
+        fig_seasonality,
+        fig_top_pairs,
+        fig_type_box,
+        fig_type_mean,
+        fig_type_year_volume,
+        fig_value_proxy,
+        fig_volume_vs_price,
+    )
+    from .constants import DEFAULT_FORECAST_MODELS
+    from .transforms import (
+        apply_filters,
+        bag_totals_and_long,
+        executive_summary_text,
+        forecast_backtest,
+        get_missing_summary,
+        get_overview_stats,
+        growth_analysis,
+        monthly_trends,
+        overview_dashboard_data,
+        price_distribution_stats,
+        region_rankings,
+        regional_competition,
+        seasonality,
+        type_price_stats,
+        value_proxy_by_type,
+        volume_price_sample,
+    )
+except ImportError:
+    from charts import (
+        fig_bag_by_type,
+        fig_bag_totals,
+        fig_cagr_bars,
+        fig_corr_heatmap,
+        fig_forecast,
+        fig_monthly_trend,
+        fig_price_hist_box,
+        fig_region_top_bottom,
+        fig_seasonality,
+        fig_top_pairs,
+        fig_type_box,
+        fig_type_mean,
+        fig_type_year_volume,
+        fig_value_proxy,
+        fig_volume_vs_price,
+    )
+    from constants import DEFAULT_FORECAST_MODELS
+    from transforms import (
+        apply_filters,
+        bag_totals_and_long,
+        executive_summary_text,
+        forecast_backtest,
+        get_missing_summary,
+        get_overview_stats,
+        growth_analysis,
+        monthly_trends,
+        overview_dashboard_data,
+        price_distribution_stats,
+        region_rankings,
+        regional_competition,
+        seasonality,
+        type_price_stats,
+        value_proxy_by_type,
+        volume_price_sample,
+    )
 
 
 def _empty_fig(title: str) -> go.Figure:

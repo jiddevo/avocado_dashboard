@@ -3,7 +3,10 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from .constants import MONTH_ORDER
+try:
+    from .constants import MONTH_ORDER
+except ImportError:
+    from constants import MONTH_ORDER
 
 
 def apply_filters(

@@ -18,9 +18,9 @@ Interactive dashboard built from the HW1 avocado analysis logic.
 python -m pip install -r avocado_dashboard/requirements.txt
 ```
 
-2. Start app from the `HW3` directory:
+2. Start app from the `avocado_dashboard` directory:
 ```bash
-python -m avocado_dashboard.app
+python app.py
 ```
 
 3. Open:
@@ -41,3 +41,13 @@ python -m avocado_dashboard.app
   - Regions
   - Top N
   - Forecast model toggle
+
+## Render Deployment
+- Build command:
+```bash
+pip install -r requirements.txt
+```
+- Start command:
+```bash
+gunicorn app:server
+```

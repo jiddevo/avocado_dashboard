@@ -4,7 +4,10 @@ import re
 
 import pandas as pd
 
-from .constants import DATA_URL
+try:
+    from .constants import DATA_URL
+except ImportError:
+    from constants import DATA_URL
 
 
 def _clean_column_name(name: str) -> str:
