@@ -26,7 +26,11 @@ def apply_filters(
     if avocado_type and avocado_type != "all":
         out = out[out["type"].astype(str) == avocado_type]
 
-    if regions:
+    # Treat an explicit empty selection as "no regions selected" (return empty),
+    # while None means "no region filter passed".
+    if regions is not None:
+        if len(regions) == 0:
+            return out.iloc[0:0].copy()
         out = out[out["region"].astype(str).isin(regions)]
 
     return out
